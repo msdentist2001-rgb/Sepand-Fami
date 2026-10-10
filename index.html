@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SEPAND FAMI</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f3ee;--sf:#fff;--tx:#26233a;--mu:#8a8499;--ln:#ece6dd;--pr:#4f46e5;--g1:linear-gradient(135deg,#4f46e5,#7c3aed);--g2:linear-gradient(135deg,#ffb454,#ff7a59);--ok:#10b981;--bad:#ef4444;--wr:#f59e0b;--pu:#4f46e5}
+[data-t=dark]{--bg:#14131c;--sf:#1f1d2b;--tx:#efedf7;--mu:#a29db5;--ln:#2e2b3f}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.8 Vazirmatn,Tahoma,sans-serif}
+#app{max-width:640px;margin:auto;padding:0 14px 100px}
+.hd{position:sticky;top:0;z-index:5;margin:0 -14px;padding:calc(8px + env(safe-area-inset-top)) 14px 8px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);display:flex;align-items:center;gap:6px}
+.hd b{flex:1;font-size:17px;font-weight:800;color:var(--pr);letter-spacing:.4px}.hd button{background:var(--sf);color:var(--tx);padding:6px 10px;box-shadow:0 1px 5px #0001;position:relative}
+.bd{position:absolute;top:-4px;left:-4px;background:var(--bad);color:#fff;border-radius:99px;font-size:10px;padding:0 5px;line-height:16px}
+button{font:inherit;border:0;border-radius:16px;padding:10px 16px;color:#fff;background:var(--g1);cursor:pointer;transition:.2s;font-weight:600}button:active{transform:scale(.96)}
+.b2{background:var(--ln);color:var(--tx)}.bg{background:var(--g2)}.br{background:var(--bad)}.w{width:100%}
+input,select,textarea{width:100%;padding:12px;margin:4px 0;border:1.5px solid var(--ln);border-radius:16px;background:var(--sf);color:var(--tx);font:inherit}input:focus,select:focus,textarea:focus{outline:0;border-color:var(--pr)}
+.card{background:var(--sf);border-radius:24px;padding:16px;margin:12px 0;border:1px solid var(--ln);animation:fi .35s}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}}
+@keyframes pl{0%{box-shadow:0 0 0 0 var(--pc)}100%{box-shadow:0 0 0 12px #0000}}
+h1,h2,h3{margin:8px 0 4px}h1{font-size:24px}h2{font-size:17px}small,.mu{color:var(--mu);font-size:12.5px}
+.hero{background:var(--g1);color:#fff;border-radius:30px;padding:22px;margin:14px 0;position:relative;overflow:hidden;box-shadow:0 14px 30px #4f46e544}
+.hero:before,.hero:after{content:'';position:absolute;border-radius:50%;background:#ffffff1c}.hero:before{left:-40px;top:-50px;width:160px;height:160px}.hero:after{left:60px;bottom:-60px;width:120px;height:120px;background:#ffb4541f}.hero small{color:#ffffffcc}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.row>button,.row>.sp{flex:none}
+.tabs{display:flex;gap:6px;margin:12px 0}.tabs button{flex:1;background:var(--ln);color:var(--tx)}.tabs .on{background:var(--g1);color:#fff}
+.chip{display:inline-block;padding:1px 11px;border-radius:99px;background:var(--ln);font-size:12px;margin:2px}.chip.on{background:var(--g1);color:#fff}
+.pb{height:10px;background:var(--ln);border-radius:9px;overflow:hidden}.pb i{display:block;height:100%;background:var(--g1);border-radius:9px;transition:.5s}
+.nav{position:fixed;bottom:calc(10px + env(safe-area-inset-bottom));left:12px;right:12px;max-width:616px;margin:auto;z-index:5;background:var(--sf);display:flex;gap:2px;padding:6px;border-radius:28px;box-shadow:0 10px 34px #26233a26;border:1px solid var(--ln)}
+.nav button{background:none;color:var(--mu);flex:1;padding:5px;font-size:11px;line-height:1.4;border-radius:20px;font-weight:400}.nav button.on{color:var(--pr);background:#4f46e51a;font-weight:800}.nav span{display:block;font-size:20px}
+.lg2{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 2px}.lg2 .sp{font-size:11px}
+.sp{display:inline-block;padding:2px 11px;border-radius:99px;font-size:12px;font-weight:700;white-space:nowrap}
+.sp.done{background:#10b9811f;color:#059669}.sp.cur{background:#fff;color:#4f46e5}.sp.next{background:#f59e0b26;color:#b45309}.sp.over{background:#ef44441f;color:#dc2626}.sp.lock{background:var(--ln);color:var(--mu)}
+.tl{position:relative;padding-right:34px}.tl:before{content:"";position:absolute;right:8px;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--ln)}
+.st{position:relative;background:var(--sf);border-radius:24px;padding:14px 16px;margin:14px 0;cursor:pointer;border:1.5px solid var(--ln);transition:.2s}
+.st:before{content:"";position:absolute;right:-34px;top:18px;width:18px;height:18px;border-radius:50%;background:#c9c3d6;border:3px solid var(--bg)}
+.st.done{background:#10b9810d;border-color:#10b98155}.st.done:before{background:var(--ok)}
+.st.over{background:#ef44440d;border-color:#ef444477}.st.over:before{background:var(--bad)}
+.st.cur{background:var(--g1);color:#fff;border:0;transform:scale(1.02);box-shadow:0 12px 28px #4f46e55c}.st.cur:before{background:#4f46e5;--pc:#4f46e599;animation:pl 1.4s infinite}
+.st.cur .dt{color:#ffffffbb}.st.cur .chip{background:#ffffff30;color:#fff}.st.cur .dev{background:#ffffff26;color:#fff}
+.st.next{background:#f59e0b12;border:2px dashed #f59e0b}.st.next:before{background:#f59e0b;--pc:#f59e0b99;animation:pl 1.4s infinite}
+.st.lock{opacity:.6}
+.dt{font:11px monospace;color:var(--mu)}.dev{background:var(--bg);border-radius:14px;padding:6px 10px;font-size:13px;margin-top:8px}
+.mo{position:fixed;inset:0;background:#0009;z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.md{background:var(--sf);width:100%;max-width:640px;max-height:88vh;overflow:auto;border-radius:28px 28px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom));animation:fi .3s}
+canvas{width:100%;height:320px;background:var(--sf);border:1px solid var(--ln);border-radius:22px;touch-action:none;direction:ltr}
+.ck{display:flex;gap:10px;padding:6px 0;align-items:flex-start}.ck input{width:20px;margin-top:6px;flex:none}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}.cal div{padding:6px 0;min-height:46px;border-radius:14px;font-size:13px}
+.cal .ev{font-weight:800;cursor:pointer;transition:.2s}.cal .ev:active{transform:scale(.92)}
+.cal .ev.c{background:#4f46e51f;box-shadow:inset 0 0 0 1px #4f46e555}.cal .ev.v{background:linear-gradient(135deg,#ffb45455,#ff7a5966);box-shadow:inset 0 0 0 1px #ff7a5988}
+.cal .td{outline:2px solid var(--tx);outline-offset:1px}.vi{display:block;font-size:10px;line-height:1.1}
+.lg{display:flex;gap:12px;font-size:12px;color:var(--mu);margin-top:10px;flex-wrap:wrap}.lg i{display:inline-block;width:12px;height:12px;border-radius:4px;vertical-align:-2px;margin-left:4px}
+.rm{padding:9px 12px;border-radius:16px;margin:6px 0;background:#4f46e514}.rm.r{background:#ef444420}
+.ln{display:block;font-size:20px;direction:ltr;text-align:center;user-select:all;font-weight:800;margin:6px}
+.toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 18px;border-radius:16px;z-index:30}
+.edu-section{margin:14px 0}.edu-section h3{font-size:15px;margin:0 0 4px}.edu-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}.edu-table th{background:var(--ln);padding:6px 8px;text-align:right}.edu-table td{padding:6px 8px;border-bottom:1px solid var(--ln)}.edu-tip{border-radius:16px;padding:10px 12px;margin:12px 0;background:#4f46e514;border-right:4px solid var(--pr)}.edu-tip.good{background:#10b9811a;border-color:var(--ok)}.edu-tip.warn{background:#f59e0b1f;border-color:var(--wr)}.edu-tip.danger{background:#ef44441a;border-color:var(--bad)}.tip-title{font-weight:800;margin-bottom:2px}.edu-checklist{display:flex;flex-direction:column;gap:6px}.edu-check-item{display:flex;gap:8px;align-items:flex-start}.bullet{flex:none;min-width:22px;text-align:center}
+</style></head><body><div id="app"></div>
+<script>
+const $=s=>document.querySelector(s),DAY=864e5,MS=DAY*30.4375;
+const E=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nd=s=>String(s).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+function ld(k,d){try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}}
+let DB=ld('sepand_db',{kids:[],staff:[{id:1,u:'staff',p:'staff123',name:'پرسنل بهداشت'}],admin:{u:'admin',p:'admin123'},seq:0});
+let SET=ld('sepand_set',{t:'light',asq:7});
+let S={r:null,kid:null,sid:0,p:'dash',at:'login',done:null,q:'',f:'all',aq:8,cm:null};
+function sv(){try{localStorage.setItem('sepand_db',JSON.stringify(DB));localStorage.setItem('sepand_set',JSON.stringify(SET))}catch(e){}}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.append(d);setTimeout(()=>d.remove(),2400)}
+function modal(h){closeM();const d=document.createElement('div');d.className='mo';d.id='mo';d.onclick=e=>{if(e.target===d)closeM()};d.innerHTML=`<div class="md">${h}<button class="b2 w" style="margin-top:12px" onclick="closeM()">بستن</button></div>`;document.body.append(d)}
+function closeM(){const m=$('#mo');if(m)m.remove()}
+function ask(msg,cb){modal(`<div style="white-space:pre-line">${E(msg)}</div><button class="w" style="margin-top:10px" id="yes">تأیید</button>`);$('#yes').onclick=()=>{closeM();cb()}}
+// ---- dates
+function j2g(jy,jm,jd){jy+=1595;let days=-355668+365*jy+~~(jy/33)*8+~~((jy%33+3)/4)+jd+(jm<7?(jm-1)*31:(jm-7)*30+186),gy=400*~~(days/146097);days%=146097;if(days>36524){gy+=100*~~(--days/36524);days%=36524;if(days>=365)days++}gy+=4*~~(days/1461);days%=1461;if(days>365){gy+=~~((days-1)/365);days=(days-1)%365}let gd=days+1,s=[0,31,(gy%4==0&&gy%100!=0)||gy%400==0?29:28,31,30,31,30,31,31,30,31,30,31],gm=0;for(;gm<13&&gd>s[gm];gm++)gd-=s[gm];return[gy,gm,gd]}
+const jp=t=>nd(new Date(t).toLocaleDateString('fa-IR')).split('/').map(Number);
+const jf=t=>jp(t).join('/');
+const jmk=(y,m,d)=>{const g=j2g(y,m,d);return new Date(g[0],g[1]-1,g[2],12).getTime()};
+const JM=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+const jml=(y,m)=>m<7?31:m<12?30:jp(jmk(y,12,30))[1]==12?30:29;
+// ---- data
+const ST=[['۳ تا ۵ روزگی',3,'واکنش به صدا، نگاه به صورت مادر'],['۱۵ روزگی',15,'تماس چشمی، مکیدن قوی'],['۱ ماهگی',30,'سر را لحظه‌ای بالا می‌آورد'],['۲ ماهگی',61,'لبخند اجتماعی، غان و غون، واکنش به صدا'],['۴ ماهگی',122,'خنده بلند، با کمک می‌نشیند، اشیا را می‌گیرد'],['۶ ماهگی',183,'غلت می‌زند، بای‌بای، صداهای دوسیلابی'],['۷ ماهگی',213,'بدون کمک می‌نشیند، به اسمش واکنش نشان می‌دهد'],['۹ ماهگی',274,'چهاردست‌وپا، دالی‌موشک، اشیای پنهان'],['۱۲ ماهگی',365,'چند قدم راه می‌رود، ۳ کلمه، اشاره می‌کند'],['۱۵ ماهگی',456,'راه رفتن مستقل، ۵-۱۰ کلمه، چنگال'],['۱۸ ماهگی',548,'می‌دود، ۱۰-۲۰ کلمه، از پله بالا می‌رود'],['۲۴ ماهگی (۲ سال)',730,'جمله ۲ کلمه‌ای، لی‌لی، نقاشی خط‌خطی'],['۳۶ ماهگی (۳ سال)',1095,'جملات ۳-۵ کلمه‌ای، پازل، بازی گروهی'],['۴۸ ماهگی (۴ سال)',1461,'داستان تعریف می‌کند، دایره می‌کشد، ۴ رنگ'],['۶۰ ماهگی (۵ سال)',1826,'می‌شمرد، می‌نویسد، مستقل لباس می‌پوشد']];
+const VAC={3:['فلج اطفال خوراکی','شش‌گانه (DTP-HepB-Hib-IPV)','روتاویروس ۱','پنوموکوک ۱'],4:['فلج اطفال خوراکی','شش‌گانه','روتاویروس ۲','پنوموکوک ۲'],5:['فلج اطفال خوراکی','شش‌گانه','روتاویروس ۳','سرخک'],8:['MMR — نوبت ۱','پنوموکوک — یادآور'],10:['MMR — نوبت ۲','سه‌گانه','فلج اطفال خوراکی'],14:['سه‌گانه','فلج اطفال خوراکی']};
+const ASQI=[5,8,11,12,14];
+const SUP=i=>i<5?['قطره A+D — ۲۵ قطره روزانه']:i<12?['قطره آهن — ۱۵ قطره روزانه','مولتی‌ویتامین — ۲۵ قطره روزانه']:['ویتامین A — هر ۶ ماه یک‌بار'];
+const Q12=[['💬 ارتباطات',[['صداهای مشابه درمی‌آورد؟','صدا بگو، ۳۰ ثانیه ساکت شو'],['بای‌بای می‌کند؟','هر روز بای‌بای را تمرین کن'],['دستور ساده انجام می‌دهد؟','دستور کوتاه بده، اول خودت انجام بده'],['سه کلمه می‌گوید؟','اسم اشیا و افراد را تکرار کن'],['به اشیا نگاه می‌کند؟','اشیای آشنا نشان بده و اسمشان را بگو'],['با انگشت نشان می‌دهد؟','هر بار اشاره کرد، تشویق کن']]],['🏃 حرکات درشت',[['با تکیه خم می‌شود؟','اسباب‌بازی کنارش بگذار'],['خودش را پایین می‌آورد؟','کنار مبل بایستانش'],['با یک دست راه می‌رود؟','کنار دیوار دستش را بگیر'],['با دو دست قدم می‌زند؟','دو دستش را بگیر و قدم بردار'],['با یک دست قدم می‌زند؟','یک دستش را بگیر، اسباب‌بازی نشان بده'],['وسط اتاق می‌رود؟','بایستانش و خودت عقب برو']]],['🤏 حرکات ظریف',[['بند را با انگشت برمی‌دارد؟','نخ رنگی روی میز بگذار'],['خرده نان برمی‌دارد؟','نخود روی سینی بگذار'],['اسباب‌بازی پایین می‌گذارد؟','بگو «بگذار زمین»'],['بدون تکیه برمی‌دارد؟','دستش را روی میز نگذار'],['توپ پرتاب می‌کند؟','توپ بگذار، خودت پرتاب کن'],['کتاب ورق می‌زند؟','کتاب تصویری جلویش بگذار']]],['🧩 حل مسئله',[['دو اسباب‌بازی را به هم می‌کوبد؟','دو اسباب‌بازی بده دستش'],['به بطری اشاره می‌کند؟','خرده نان داخل بطری شفاف بگذار'],['شیء پنهان را پیدا می‌کند؟','زیر پارچه پنهان کن'],['داخل کاسه می‌گذارد؟','کاسه و اسباب‌بازی بگذار'],['دو اسباب‌بازی می‌اندازد؟','خودت بینداز، ازش بخواه'],['خط‌خطی می‌کند؟','مداد شمعی و کاغذ بده']]],['👥 شخصی-اجتماعی',[['اسباب‌بازی دراز می‌کند؟','دستت را دراز کن و بگو «بده»'],['دستش را در آستین می‌برد؟','بگو «دستت را بده»'],['اسباب‌بازی را رها می‌کند؟','تشویقش کن'],['پایش را بلند می‌کند؟','بگو «پات را بده»'],['توپ را قل می‌دهد؟','دونفره بنشین، توپ قل بده'],['عروسک بغل می‌کند؟','عروسک نرم بده، خودت بغل کن']]]];
+const EDU=[
+{id:'vaccine',topic:'vaccine',icon:'💉',title:'چرا واکسن؟',summary:'واکسن مثل یه تمرین کوچیک برای بدن بچه‌ست. بهش یاد می‌ده چطور با میکروب‌های خطرناک بجنگه، بدون اینکه واقعاً مریض بشه.',body:`
+<div class="edu-section"><h3>🎯 واکسن چیکار می‌کنه؟</h3><p>فکر کن بدن بچه یه سرباز تازه‌کاره. واکسن براش یه «مانور تمرینی» می‌ذاره. یه تیکه از میکروب (ضعیف شده یا کشته شده) رو نشونش می‌ده تا بدن یاد بگیره چطور باهاش بجنگه. بعداً اگه میکروب واقعی حمله کرد، بدن آماده‌ست و سریع شکستش می‌ده. 💪</p></div>
+<div class="edu-section"><h3>❓ چرا مهمه؟</h3><p>چون از بیماری‌های خطرناکی جلوگیری می‌کنه که می‌تونن بچه رو خیلی مریض کنن، یا حتی باعث معلولیت بشن. با یه واکسن ساده، بچه‌ت رو از شر این بیماری‌ها راحت می‌کنی.</p></div>
+<div class="edu-section"><h3>📋 واکسن‌های بچه‌ت چی رو جلوگیری می‌کنن؟</h3><table class="edu-table"><thead><tr><th>واکسن</th><th>از چی؟</th></tr></thead><tbody>
+<tr><td>💉 ب.ث.ژ</td><td>سل (بیماری خطرناک ریه)</td></tr>
+<tr><td>💉 هپاتیت ب</td><td>بیماری کبد</td></tr>
+<tr><td>💉 شش‌گانه</td><td>۵ بیماری خطرناک + فلج اطفال تزریقی</td></tr>
+<tr><td>💉 فلج اطفال خوراکی</td><td>فلج شدن پاها</td></tr>
+<tr><td>💉 MMR</td><td>سرخک، اوریون، سرخجه</td></tr>
+<tr><td>💉 پنوموکوک</td><td>ذات‌الریه و مننژیت</td></tr>
+<tr><td>💉 روتاویروس</td><td>اسهال شدید</td></tr>
+<tr><td>💉 سرخک</td><td>سرخک</td></tr></tbody></table></div>
+<div class="edu-tip good"><div class="tip-title">💡 یه نکته</div>اگه یه واکسن رو دیر بزنی، نگران نباش. فقط برو مرکز بهداشت و بگو، برنامه‌ش رو برات تنظیم می‌کنن. ✌️</div>
+<div class="edu-tip warn"><div class="tip-title">⏰ یادآور خودکار</div>اگه ۳ روز از موعد واکسن گذشت، SEPAND FAMI خودکار بهت اعلان قرمز می‌ده که یادت نره!</div>`},
+{id:'thyroid',topic:'thyroid',icon:'🦶',title:'غربالگری کف پا (تیروئید)',summary:'یه قطره خون از پاشنه‌ی پای نوزاد در روز ۳ تا ۵ تولد. اگه تیروئیدش مشکل داشته باشه، زود می‌فهمیم و زود درمان می‌کنیم.',body:`
+<div class="edu-section"><h3>👣 کف پا چرا مهمه؟</h3><p>یه قطره خون کوچیک از پاشنه‌ی پای نوزاد، کلی اطلاعات مهم به ما می‌ده. این تست برای تشخیص <b>کم‌کاری مادرزادی تیروئید</b> و چند بیماری دیگه انجام می‌شه.</p></div>
+<div class="edu-section"><h3>🚨 چرا انقدر عجله داریم؟</h3><p>غده‌ی تیروئید هورمونی ترشح می‌کنه که برای <b>رشد مغز و بدن</b> حیاتیه. اگه نوزادی تیروئیدش کم‌کار باشه و <b>به موقع درمان نشه</b>، دچار <b>عقب‌موندگی ذهنی و مشکلات رشدی</b> می‌شه.</p></div>
+<div class="edu-tip good"><div class="tip-title">🌟 چرا ۳ تا ۵ روزگی؟ (زمان طلایی)</div>چون علائم این بیماری در نوزاد <b>دیده نمی‌شه</b>. اگه صبر کنیم تا علائم ظاهر بشه، <b>آسیب مغزی دیگه برنمی‌گرده</b>. این ۳-۵ روز <b>طلایی</b>ه چون اگه زود تشخیص بدیم، <b>درمانش خیلی راحته</b> — فقط یه قرص کوچیک هر روز — و بچه کاملاً طبیعی رشد می‌کنه.</div>
+<div class="edu-section"><h3>🧪 این تست فقط برای تیروئید نیست!</h3><p>بیماری‌هایی مثل <b>PKU</b> (که اگه درمان نشه باعث عقب‌موندگی می‌شه) رو هم تشخیص می‌ده.</p></div>
+<div class="edu-tip"><div class="tip-title">🛁 بعد از نمونه‌گیری چیکار کنم؟</div>یه گاز پاکیزه روی محل بذار و ۵ دقیقه فشار بده. حموم کردن بچه بعدش مشکلی نداره.</div>`},
+{id:'supplement',topic:'supplement',icon:'💊',title:'چرا مکمل؟',summary:'قطره‌ها کمک می‌کنن بچه‌ت ویتامین‌ها و آهن کافی بگیره — چیزایی که فقط از شیر مادر یا غذا به دستش نمی‌رسه.',body:`
+<div class="edu-section"><h3>🌞 قطره A+D (از تولد تا ۶ ماهگی)</h3><p><b>ویتامین A:</b> برای <b>بینایی خوب، مقاومت بدن و رشد استخوان</b> لازمه.</p><p><b>ویتامین D:</b> شیر مادر ویتامین D کافی نداره. این ویتامین برای <b>جذب کلسیم و استخوان‌های محکم</b> حیاتیه.</p><p>هر روز ۲۵ قطره به بچه بده.</p></div>
+<div class="edu-section"><h3>🩸 قطره آهن (از ۶ ماهگی تا ۲ سالگی)</h3><p>ذخیره‌ی آهن بچه که توی شکم مادر جمع کرده بود، تا ۶ ماهگی تموم می‌شه. از اون به بعد باید آهن رو از قطره بگیره. آهن برای <b>رشد مغز، یادگیری و حافظه</b> خیلی مهمه. اگه کم بشه، بچه بی‌اشتها می‌شه، بداخلاق می‌شه و یادگیریش کند می‌شه. 🧠</p></div>
+<div class="edu-section"><h3>💊 مولتی‌ویتامین (از ۶ ماهگی تا ۲ سالگی)</h3><p>یه مکمل که ویتامین‌های مختلف بدن بچه رو تامین می‌کنه. نیازی به نکته خاصی نداره، فقط سر وقت بده.</p></div>
+<div class="edu-section"><h3>🍊 ویتامین A (از ۲ تا ۵ سالگی)</h3><p>هر ۶ ماه یه بار. برای <b>بینایی خوب و مقاومت بدن</b>.</p></div>
+<div class="edu-section"><h3>⭐ نکات طلایی برای <b>قطره آهن</b></h3><table class="edu-table"><thead><tr><th>نکته</th><th>چیکار کنم؟</th></tr></thead><tbody>
+<tr><td>🕐 سر وقت بده</td><td>هر روز یه ساعت مشخص، مثلاً صبح‌ها</td></tr>
+<tr><td>🥛 با شیر قاطی نکن</td><td>آهن رو بین دو وعده شیر بده، نه با خود شیر</td></tr>
+<tr><td>🍊 با آب‌پرتقال بده</td><td>ویتامین C جذب آهن رو چند برابر می‌کنه</td></tr>
+<tr><td>🩸 کم‌کم شروع کن</td><td>اگه معده‌ش حساسه، اول با ۵-۷ قطره شروع کن، بعد برسون به ۱۵</td></tr>
+<tr><td>🦷 ته حلق بچکون</td><td>قطره رو عقب دهنش بریز تا با دندون‌هاش تماس کمتری داشته باشه</td></tr>
+<tr><td>🧼 لثه‌ش رو پاک کن</td><td>بعد از قطره، با یه دستمال خیس، لثه و دندوناش رو تمیز کن</td></tr>
+<tr><td>⚫ مدفوع سیاه؟ عادیه</td><td>اگه مدفوعش سیاه شد، نگران نباش. طبیعیه</td></tr></tbody></table></div>
+<div class="edu-tip warn"><div class="tip-title">⚠️ یه هشدار</div>قطره آهن باعث <b>پوسیدگی دندون نمی‌شه</b>. فقط ممکنه رنگ دندون‌ها رو یه‌کم تیره کنه که با تمیز کردن برطرف می‌شه. 😊</div>`},
+{id:'breastfeeding',topic:'breastfeeding',icon:'🍼',title:'شیردهی و افزایش شیر مادر',summary:'شیر مادر فقط غذا نیست — یه واکسن، دارو و مکمل همه‌کاره‌ست. چطور شیرمون رو زیاد کنیم؟',body:`
+<div class="edu-section"><h3>🌟 چرا شیر مادر انقدر عالیه؟</h3><div class="edu-checklist">
+<div class="edu-check-item"><span class="bullet">✅</span><div><b>مقاومت بدن:</b> آنتی‌بادی‌ها بچه رو از اسهال، عفونت گوش و ذات‌الریه حفظ می‌کنن.</div></div>
+<div class="edu-check-item"><span class="bullet">✅</span><div><b>هضم راحت:</b> معده‌ی نوزاد کوچیکه، شیر مادر دقیقاً مناسبشه.</div></div>
+<div class="edu-check-item"><span class="bullet">✅</span><div><b>رشد مغز:</b> چربی‌های خاص برای مغز و چشم بچه عالیه.</div></div>
+<div class="edu-check-item"><span class="bullet">✅</span><div><b>پیوند عاطفی:</b> هم مادر آروم می‌شه، هم بچه.</div></div></div></div>
+<div class="edu-section"><h3>⏰ چرا تا ۲ سالگی؟</h3><p>شیر مادر تا ۲ سالگی <b>منبع مهم انرژی، ویتامین و آنتی‌بادی</b> برای بچه‌ست.</p></div>
+<div class="edu-tip good"><div class="tip-title">💡 ترتیب طلایی (۱۲ ماه به بعد)</div>اول غذا، بعد شیر. چون اگه اول شیر بخوره، دیگه غذا نمی‌خوره.</div>
+<div class="edu-section"><h3>📈 چطور شیرم رو زیاد کنم؟</h3><div class="edu-checklist">
+<div class="edu-check-item"><span class="bullet">1.</span><div><b>مکیدن مکرر:</b> مهم‌ترین عامل! هر ۲-۳ ساعت.</div></div>
+<div class="edu-check-item"><span class="bullet">2.</span><div><b>شب‌ها هم شیر بده:</b> هورمون پرولاکتین بیشتر ترشح می‌شه.</div></div>
+<div class="edu-check-item"><span class="bullet">3.</span><div><b>مایعات کافی:</b> هر وقت تشنه شدی آب بخور.</div></div>
+<div class="edu-check-item"><span class="bullet">4.</span><div><b>غذای مغذی:</b> پروتئین، سبزیجات و میوه.</div></div>
+<div class="edu-check-item"><span class="bullet">5.</span><div><b>آرامش:</b> استرس و خستگی شیر رو کم می‌کنه.</div></div>
+<div class="edu-check-item"><span class="bullet">6.</span><div><b>تماس پوستی:</b> بچه رو بغل کن.</div></div>
+<div class="edu-check-item"><span class="bullet">7.</span><div><b>از هر دو سینه:</b> هر بار هر دو سینه.</div></div>
+<div class="edu-check-item"><span class="bullet">8.</span><div><b>جای آروم:</b> جای خلوت و بی‌سر و صدا.</div></div></div></div>
+<div class="edu-tip warn"><div class="tip-title">🤔 شیرم کمه؟ علائم واقعی</div>افزایش وزن کمتر از ۵۰۰ گرم در ماه، کمتر از ۶ پوشک خیس در روز، بی‌قراری مداوم بچه. اگه اینا رو دیدی، با پزشک مشورت کن.</div>
+<div class="edu-section"><h3>❌ چیزایی که شیر رو کم می‌کنه</h3><div class="edu-checklist">
+<div class="edu-check-item"><span class="bullet">❌</span><div>شیشه و پستانک (بچه سردرگم می‌شه)</div></div>
+<div class="edu-check-item"><span class="bullet">❌</span><div>غذای کمکی زودتر از ۶ ماه</div></div>
+<div class="edu-check-item"><span class="bullet">❌</span><div>شیر ندادن شب</div></div>
+<div class="edu-check-item"><span class="bullet">❌</span><div>سیگار و قلیون</div></div>
+<div class="edu-check-item"><span class="bullet">❌</span><div>استرس و خستگی</div></div></div></div>`},
+{id:'post-vaccine',topic:'post-vaccine',icon:'🩺',title:'مراقبت بعد از واکسن',summary:'تب خفیف، درد و تورم محل تزریق، و یه‌کم بی‌قراری — همه عادی‌ان. با استراحت، شیر یا مایعات و کمپرس سرد معمولاً خوب می‌شن.',body:`
+<div class="edu-section"><h3>😊 چیزایی که عادیه</h3><div class="edu-checklist">
+<div class="edu-check-item"><span class="bullet">•</span><div>یه‌کم تب کنه</div></div>
+<div class="edu-check-item"><span class="bullet">•</span><div>محل تزریق قرمز یا ورم کنه</div></div>
+<div class="edu-check-item"><span class="bullet">•</span><div>بی‌قرار بشه</div></div></div>
+<p style="margin-top:10px"><b>همه اینا عادی‌ان و چند روزه خوب می‌شن.</b> 😊</p></div>
+<div class="edu-section"><h3>💊 برای تب و درد</h3><p>اگه بچه خیلی اذیت بود یا تب داشت، <b>قبل از دادن هر دارویی</b> از پزشک یا داروساز بپرس. مقدار دارو به <b>وزن بچه و نوع شربت</b> بستگی داره و باید دقیقاً طبق همون برچسب روی بسته یا نسخه‌ی پزشک باشه. با حدس و عدد دلخواه دارو نده، چون اشتباه تو دوز برای بچه‌ها خطرناکه.</p>
+<div class="edu-tip warn"><div class="tip-title">⚠️ توجه</div>بدون نظر پزشک، <b>قبل از واکسن</b> به بچه تب‌بر نده. بعد از واکسن هم فقط اگه لازم شد و با مشورت.</div></div>
+<div class="edu-section"><h3>🏠 چیکار کنم؟</h3><div class="edu-checklist">
+<div class="edu-check-item"><span class="bullet">🌡️</span><div><b>تب و درد:</b> با پزشک یا داروساز مشورت کن</div></div>
+<div class="edu-check-item"><span class="bullet">🧊</span><div><b>تورم:</b> پارچه‌ی سرد و خیس روی محل تزریق</div></div>
+<div class="edu-check-item"><span class="bullet">👕</span><div><b>لباس:</b> لباس تنگ نپوشون</div></div>
+<div class="edu-check-item"><span class="bullet">🛁</span><div><b>حموم:</b> شستن محل تزریق مشکلی نداره</div></div></div></div>
+<div class="edu-tip danger"><div class="tip-title">🚨 کی برم دکتر؟</div>اگه بچه:<br>• تب طولانی یا غیرقابل کنترل داشت (مثلاً بالای ۴۰ درجه)<br>• بیشتر از ۳ ساعت بی‌وقفه گریه کرد و آروم نمی‌شد<br>• شیر یا مایعات نخورد یا خیلی خواب‌آلود و بی‌حال بود<br>• تنفسش سخت یا خیلی تند شد<br>• تشنج کرد<br>سریع برو مرکز بهداشت یا درمانی.</div>`},
+{id:'complementary',topic:'complementary',icon:'🥣',title:'تغذیه تکمیلی (از ۶ ماهگی)',summary:'از ۶ ماهگی شروع کن. اول با ۲-۳ قاشق، ۲-۳ بار در روز. هر غذای جدید رو با فاصله ۵ روز اضافه کن.',body:`
+<div class="edu-section"><h3>⏰ کی شروع کنم؟</h3><p>از <b>پایان ۶ ماهگی</b>. تا اون موقع فقط شیر مادر (یا شیرخشک) کافیه.</p></div>
+<div class="edu-section"><h3>🥄 چقدر بدم؟</h3><p>شروع با <b>۲-۳ قاشق مرباخوری</b>، <b>۲-۳ بار در روز</b>. بعد از یه مدت کم‌کم برسون به <b>نصف لیوان</b>.</p></div>
+<div class="edu-section"><h3>🔄 غذای جدید چطور اضافه کنم؟</h3><p>هر ماده‌ی جدید رو <b>۵ روز</b> به تنهایی بده. اگه بچه‌ت خوب خورد و مشکلی نداشت، برو سراغ غذای بعدی. اینطوری می‌فهمی اگه حساسیتی داشت، از کدوم غذا بوده.</p></div>
+<div class="edu-section"><h3>🍽️ چی بدم؟</h3><div class="edu-checklist">
+<div class="edu-check-item"><span class="bullet">🍚</span><div>فرنی آرد برنج</div></div>
+<div class="edu-check-item"><span class="bullet">🥔</span><div>پوره سیب‌زمینی</div></div>
+<div class="edu-check-item"><span class="bullet">🥕</span><div>پوره هویج، کدو، نخود فرنگی</div></div>
+<div class="edu-check-item"><span class="bullet">🥚</span><div>زرده‌ی تخم‌مرغ (خوب پخته شده)</div></div>
+<div class="edu-check-item"><span class="bullet">🍲</span><div>سوپ (با برنج، گوشت، سبزیجات)</div></div>
+<div class="edu-check-item"><span class="bullet">🍎</span><div>پوره‌ی میوه‌های رسیده و نرم</div></div>
+<div class="edu-check-item"><span class="bullet">🥛</span><div>ماست پاستوریزه پرچرب</div></div>
+<div class="edu-check-item"><span class="bullet">🌴</span><div>خرما (پوست گرفته شده)</div></div></div></div>
+<div class="edu-section"><h3>👦 از ۱۲ ماه به بعد</h3><div class="edu-checklist">
+<div class="edu-check-item"><span class="bullet">🍽️</span><div>۳-۴ وعده اصلی + ۱-۲ میان‌وعده</div></div>
+<div class="edu-check-item"><span class="bullet">🥛</span><div>لبنیات پرچرب تا ۲ سالگی، بعد کم‌چرب</div></div>
+<div class="edu-check-item"><span class="bullet">💧</span><div>آب سالم و تمیز</div></div></div></div>
+<div class="edu-tip danger"><div class="tip-title">❌ چی ندم؟</div>غذاهای آماده و کارخانه‌ای • آب‌میوه‌های تجاری • چیپس و پفک • غذاهای خیلی شور و شیرین</div>`},
+{id:'dental',topic:'dental',icon:'🦷',title:'مراقبت دهان و دندون',summary:'از ۶ ماهگی مسواک انگشتی (بدون خمیردندان). از ۳ سالگی وارنیش فلوراید هر ۶ ماه.',body:`
+<div class="edu-section"><h3>🪥 مسواک انگشتی (۶ ماه تا ۳ سال)</h3><p>از ۶ ماهگی، با یه مسواک انگشتی (بدون خمیردندان) لثه و دندون‌های بچه رو تمیز کن.</p></div>
+<div class="edu-section"><h3>✨ وارنیش فلوراید (۳ سال به بعد)</h3><p>از ۳ سالگی، هر ۶ ماه یه بار، دندانپزشک وارنیش فلوراید برات انجام می‌ده.</p></div>
+<div class="edu-tip good"><div class="tip-title">💡 یه نکته طلایی</div><b>بعد از قطره آهن</b>، لثه و دندون‌های بچه رو با یه دستمال خیس پاک کن. اینطوری رنگ آهن روی دندوناش نمی‌مونه.</div>`},
+{id:'asq',topic:'asq',icon:'🎯',title:'ASQ چیه؟ (غربالگری تکامل)',summary:'ASQ یه پرسشنامه ساده‌ست که به ما می‌گه بچه تو چه مهارت‌هایی داره و کجاها نیاز به کمک داره. دو نوع داره: ASQ-3 و ASQ:SE-2.',body:`
+<div class="edu-section"><h3>🎯 ASQ چیه؟</h3><p>ASQ (Ages &amp; Stages Questionnaires) یعنی «پرسشنامه‌های سنین و مراحل». یه سری سوال ساده‌ست که مامان یا بابا از روی مشاهده‌ی بچه جواب می‌دن. هدفش اینه که بفهمیم بچه تو چه مهارت‌هایی خوب پیش می‌ره و کجاها شاید نیاز به تمرین یا کمک داشته باشه.</p></div>
+<div class="edu-section"><h3>📋 ASQ-3 — بررسی ۵ حیطه</h3><div class="edu-checklist">
+<div class="edu-check-item"><span class="bullet">💬</span><div><b>ارتباطات:</b> حرف زدن، صدا درآوردن، فهمیدن حرف دیگران</div></div>
+<div class="edu-check-item"><span class="bullet">🏃</span><div><b>حرکات درشت:</b> نشستن، راه رفتن، پریدن، دویدن</div></div>
+<div class="edu-check-item"><span class="bullet">🤏</span><div><b>حرکات ظریف:</b> گرفتن اشیا با انگشت، نقاشی کشیدن، بستن دکمه</div></div>
+<div class="edu-check-item"><span class="bullet">🧩</span><div><b>حل مسئله:</b> پیدا کردن اسباب‌بازی پنهان، چیدن مکعب، شمارش</div></div>
+<div class="edu-check-item"><span class="bullet">👥</span><div><b>شخصی-اجتماعی:</b> بازی با دیگران، لباس پوشیدن، غذا خوردن مستقل</div></div></div></div>
+<div class="edu-section"><h3>💗 ASQ:SE-2 — بررسی رفتار و احساسات</h3><p>این نسخه مخصوص <b>رفتار و احساسات</b> بچه‌ست. سوال‌هایی مثل:</p><div class="edu-checklist">
+<div class="edu-check-item"><span class="bullet">•</span><div>وقتی ناراحت می‌شه، خودش رو آروم می‌کنه؟</div></div>
+<div class="edu-check-item"><span class="bullet">•</span><div>با بچه‌های دیگه بازی می‌کنه؟</div></div>
+<div class="edu-check-item"><span class="bullet">•</span><div>به آغوش و محبت مامان واکنش خوب می‌ده؟</div></div>
+<div class="edu-check-item"><span class="bullet">•</span><div>رفتارهای عجیب یا تکراری داره؟</div></div></div></div>
+<div class="edu-tip good"><div class="tip-title">🎯 چرا مهمه؟</div>چون اگه بچه‌ای تو یه حیطه مشکل داشته باشه، <b>زودتر می‌فهمیم</b> و با تمرین ساده می‌تونیم کمکش کنیم. اگه هم مشکل جدی باشه، به پزشک ارجاع می‌دیم.</div>
+<div class="edu-tip warn"><div class="tip-title">⏰ ASQ در چه سنینیه؟</div>ASQ-3 در <b>۶، ۱۲، ۲۴، ۳۶ و ۶۰ ماهگی</b>. از ۷ روز قبل، SEPAND FAMI تمرین‌هاش رو بهت یادآوری می‌کنه.</div>`}
+];
+const M={w:{B:[3.3,4.5,5.6,6.4,7,7.9,8.9,9.6,10.9,12.2,14.3,16.3,18.3],G:[3.2,4.2,5.1,5.8,6.4,7.3,8.2,8.9,10.2,11.5,13.9,16.1,18.2]},h:{B:[49.9,54.7,58.4,61.4,63.9,67.6,72,75.7,82.3,87.1,96.1,103.3,110],G:[49.1,53.7,57.1,59.8,62.1,65.7,70.1,74,80.7,86.4,95.1,102.7,109.4]},c:{B:[34.5,37.3,39.1,40.5,41.6,43.3,45,46.1,47.4,48.3,49.5,50.2,50.7],G:[33.9,36.5,38.3,39.5,40.6,42.2,43.8,44.9,46.2,47.2,48.5,49.3,50]}};
+const AG=[0,1,2,3,4,6,9,12,18,24,36,48,60],FR={w:.125,h:.04,c:.03},LIM={w:24,h:40,c:18},NM={w:'وزن (kg)',h:'قد (cm)',c:'دور سر (cm)'};
+// ---- logic
+const gk=()=>DB.kids.find(k=>k.id===S.kid);
+const canEdit=()=>S.r!='staff';
+const ad=k=>(Date.now()-k.bd)/DAY;
+function ageTxt(k){const d=Math.floor(ad(k));return d<60?d+' روز':Math.floor(d/30.4375)+' ماه و '+Math.floor(d%30.4375)+' روز'}
+function stat(k){const a=ad(k),r=[];let cur=-1,nx=-1;ST.forEach((s,i)=>{if(a>=s[1]&&!k.completed[i])cur=i;if(nx<0&&a<s[1])nx=i});ST.forEach((s,i)=>r.push(k.completed[i]?'done':a>=s[1]?(i==cur?'cur':'over'):i==nx?'next':'lock'));return r}
+const LBL={done:'✅ تکمیل شده',over:'🔴 عقب‌افتاده',cur:'📍 الان اینجاییم',next:'⏭️ ایستگاه بعدی',lock:'🔒 هنوز نرسیده'};
+function rem(k){const a=ad(k),o=[];ST.forEach((s,i)=>{if(k.completed[i])return;const dl=s[1]-a;if(VAC[i]){if(dl>=0&&dl<=3)o.push({c:0,t:`💉 واکسن ${s[0]} تا ${Math.ceil(dl)} روز دیگر`});if(dl<-3)o.push({c:1,t:`🚨 واکسن ${s[0]} ${Math.floor(-dl)} روز عقب افتاده`})}if(ASQI.includes(i)&&dl>=0&&dl<=SET.asq)o.push({c:0,t:`🎯 تمرین ASQ ${s[0]} (${Math.ceil(dl)} روز مانده)`})});k.notes.filter(n=>!n.r).forEach(n=>o.push({c:0,t:'✉️ '+n.t}));o.push({c:0,t:'💊 مکمل روزانه را فراموش نکنید'});return o}
+function ip(a,x){if(x<=0)return a[0];for(let i=1;i<AG.length;i++)if(x<=AG[i])return a[i-1]+(a[i]-a[i-1])*(x-AG[i-1])/(AG[i]-AG[i-1]);return a[a.length-1]}
+const corr=(k,m,t)=>k.isPreterm&&m<=LIM[t]?Math.max(0,m-(40-k.gest)/4):m;
+// ---- auth
+function login(){const u=nd($('#lu').value.trim()),p=nd($('#lp').value.trim()),st=DB.staff.find(x=>x.u==u&&x.p==p),k=DB.kids.find(x=>x.code==u.toUpperCase()&&x.mother==p);
+ if(u==DB.admin.u&&p==DB.admin.p){S={...S,r:'admin',kid:null,p:'kids'}}else if(st){S={...S,r:'staff',sid:st.id,kid:null,p:'kids'}}else if(k){S={...S,r:'parent',kid:k.id,p:'dash'}}else return toast('نام کاربری یا رمز اشتباه است');R()}
+function reg(adm){const g=i=>nd($('#'+i).value.trim()),name=g('rn'),y=+g('ry'),m=+g('rm'),d=+g('rd'),ga=+g('rg'),mob=g('rb');
+ if(!name||!(y>1380&&y<1500)||!(m>=1&&m<=12)||!(d>=1&&d<=jml(y,m))||!(ga>=22&&ga<=45)||!/^09\d{9}$/.test(mob))return toast('فیلدها را درست پر کنید (موبایل ۱۱ رقمی با ۰۹، هفته ۲۲ تا ۴۵)');
+ const bd=jmk(y,m,d);if(bd>Date.now())return toast('تاریخ تولد در آینده است');
+ const gen=$('#rs').value,pre=ga<37,code=`KID-${y}-${String(DB.kids.filter(k=>k.birthYear==y).length+1).padStart(4,'0')}-${gen}${pre?'P':'T'}`,id=++DB.seq,sf=adm&&$('#ra')?+$('#ra').value:0;
+ DB.kids.push({id,code,name,birthYear:y,birthJalali:`${y}/${m}/${d}`,birthISO:new Date(bd).toISOString().slice(0,10),bd,gender:gen,gest:ga,mother:mob,isPreterm:pre,staff:sf,vaccines:{},completed:{},asq:{},measurements:[],notes:[]});sv();
+ if(adm){toast('ثبت شد: '+code);S.p='kids'}else{S.done={code,id};S.at='login'}R()}
+function enter(id){S={...S,r:'parent',kid:id,p:'dash',done:null};R()}
+function out(){S={r:null,kid:null,sid:0,p:'dash',at:'login',done:null,q:'',f:'all',aq:8,cm:null};R()}
+function nav(p){S.p=p;R();scrollTo(0,0)}
+function pick(id){S.kid=id;S.p='dash';R()}
+function theme(){SET.t=SET.t=='dark'?'light':'dark';sv();R()}
+// ---- views
+function regForm(adm){return`<input id="rn" placeholder="نام و نام خانوادگی کودک"><div class="row"><input id="ry" placeholder="سال تولد (۱۴۰۴)" inputmode="numeric"><input id="rm" placeholder="ماه" inputmode="numeric"><input id="rd" placeholder="روز" inputmode="numeric"></div><select id="rs"><option value="B">👦 پسر</option><option value="G">👧 دختر</option></select><input id="rg" placeholder="سن بارداری هنگام زایمان (۲۲ تا ۴۵ هفته)" inputmode="numeric"><input id="rb" placeholder="موبایل مادر (۰۹...)" inputmode="numeric" dir="ltr">${adm?`<select id="ra"><option value="0">بدون تخصیص به پرسنل</option>${DB.staff.map(s=>`<option value="${s.id}">${E(s.name)}</option>`).join('')}</select>`:''}<button class="w" onclick="reg(${adm})">ثبت‌نام</button>`}
+function authV(){return`<div class="hero" style="text-align:center;margin-top:20px"><div style="font-size:46px">🌱</div><h1>SEPAND FAMI</h1><small>سامانه پایش هوشمند کودک ۰ تا ۵ سال<br>اپ کمکی و غیررسمی برای والدین، جایگزین سامانه سیب نیست</small></div>
+${S.done?`<div class="card" style="border:2px solid var(--ok)"><b>✅ ثبت‌نام انجام شد. کد کودک را نگه دارید:</b><span class="ln">${S.done.code}</span><small>رمز ورود: شماره موبایل مادر</small><button class="w bg" style="margin-top:8px" onclick="enter(${S.done.id})">ورود به حساب کودک</button></div>`:''}
+<div class="tabs"><button class="${S.at=='login'?'on':''}" onclick="S.at='login';R()">ورود</button><button class="${S.at=='reg'?'on':''}" onclick="S.at='reg';R()">ثبت‌نام کودک</button></div>
+<div class="card">${S.at=='login'?`<input id="lu" placeholder="کد کودک (KID-1404-0001-BT) / نام کاربری" dir="ltr"><input id="lp" type="password" placeholder="موبایل مادر / رمز" dir="ltr"><button class="w" onclick="login()">ورود</button>`:regForm(false)}</div>`}
+function hdr(k){const n=k?rem(k).length-1:0;return`<div class="hd">${S.r!='parent'&&k?`<button onclick="S.kid=null;nav('kids')">→</button>`:''}<b>🌱 SEPAND FAMI</b>${k?`<button onclick="bell()">🔔${n>0?`<span class="bd">${n}</span>`:''}</button>`:''}<button onclick="theme()">${SET.t=='dark'?'☀️':'🌙'}</button><button onclick="nav('set')">⚙️</button><button onclick="out()">🚪</button></div>`}
+function nv(a){return`<div class="nav">${a.map(x=>`<button class="${S.p==x[0]?'on':''}" onclick="nav('${x[0]}')"><span>${x[1]}</span>${x[2]}</button>`).join('')}</div>`}
+function R(){const A=$('#app');document.body.dataset.t=SET.t;if(!S.r){A.innerHTML=authV();return}
+ const k=S.kid?gk():null;if(S.kid&&!k){S.kid=null}if(!S.kid&&!['kids','admin','set'].includes(S.p))S.p='kids';
+ const V={dash:dashV,map:mapV,growth:growV,asq:asqV,cal:calV,learn:learnV,set:setV,help:helpV,kids:kidsV,admin:admV};
+ A.innerHTML=hdr(k)+V[S.p](k)+(k?nv([['dash','🏠','خانه'],['map','🗺️','نقشه'],['growth','📈','رشد'],['asq','🎯','ASQ'],['learn','📚','آموزش']]):nv(S.r=='admin'?[['kids','👶','کودکان'],['admin','🛠️','مدیریت']]:[['kids','👶','کودکان']]));
+ if(S.p=='growth')setTimeout(gInit,0)}
+function dashV(k){const s=stat(k),dn=s.filter(x=>x=='done').length,nx=s.findIndex(x=>x=='cur'||x=='next'),r=rem(k).slice(0,4);
+ return`<div class="hero"><small dir="ltr">${k.code}</small><h1>${k.gender=='B'?'👦':'👧'} ${E(k.name)}</h1><small>${ageTxt(k)} · ${k.isPreterm?'نارس ('+k.gest+' هفته)':'ترم'} · تولد ${k.birthJalali}</small></div>
+<div class="card"><div class="row"><b>پیشرفت مراقبت‌ها</b><span class="mu" style="text-align:left">${dn} از ۱۵</span></div><div class="pb"><i style="width:${dn/15*100}%"></i></div><br><div class="row"><div>📅 ایستگاه بعدی<br><b>${nx>=0?ST[nx][0]:'پایان مسیر'}</b></div><div>📏 اندازه‌گیری‌ها<br><b>${k.measurements.length}</b></div></div></div>
+<div class="card"><h2>🔔 یادآورها</h2>${r.map(x=>`<div class="rm ${x.c?'r':''}">${E(x.t)}</div>`).join('')}</div>
+<div class="row"><button class="w" onclick="nav('map')">🗺️ نقشه راه</button><button class="w bg" onclick="nav('cal')">📅 تقویم</button></div><button class="w b2" style="margin-top:8px" onclick="nav('help')">🆘 چه کنم اگر…؟</button>
+${S.r!='parent'?`<div class="card"><h2>✉️ پیام به مادر</h2><textarea id="mt" rows="3"></textarea><button class="w" onclick="send()">ارسال</button></div>`:''}`}
+function send(){const t=$('#mt').value.trim();if(!t)return;gk().notes.push({t,d:Date.now(),r:0});sv();toast('پیام ارسال شد');$('#mt').value=''}
+function bell(){const k=gk(),o=rem(k);modal(`<h2>🔔 اعلان‌ها</h2>${o.map(x=>`<div class="rm ${x.c?'r':''}">${E(x.t)}</div>`).join('')}`);if(S.r=='parent'){k.notes.forEach(n=>n.r=1);sv();R()}}
+function mapV(k){const s=stat(k);return`<h2>🗺️ نقشه راه مراقبت</h2><div class="lg2">${['cur','next','done','over','lock'].map(t=>`<span class="sp ${t}" style="${t=='cur'?'background:#4f46e5;color:#fff':''}">${LBL[t]}</span>`).join('')}</div><div class="tl">${ST.map((x,i)=>`<div class="st ${s[i]}" onclick="stn(${i})"><div class="row"><b>${x[0]}</b><span class="sp ${s[i]}">${LBL[s[i]]}</span></div><div class="dt">${jf(k.bd+x[1]*DAY)}</div><div>${VAC[i]?'<span class="chip">💉 واکسن</span>':''}<span class="chip">💊 مکمل</span><span class="chip">🩺 اندازه‌گیری</span>${ASQI.includes(i)?'<span class="chip">🎯 ASQ</span>':''}</div><div class="dev">🎓 ${x[2]}</div></div>`).join('')}</div>`}
+function stn(i){const k=gk(),s=stat(k)[i],v=VAC[i],ed=canEdit(),ok=ad(k)>=ST[i][1];
+ modal(`<h2>${ST[i][0]}</h2><div class="dt">${jf(k.bd+ST[i][1]*DAY)} · ${LBL[s]}</div><h3>💉 واکسن‌ها</h3>${v?v.map((x,j)=>`<label class="ck"><input type="checkbox" ${k.vaccines[i+'_'+j]?'checked':''} ${ed?'':'disabled'} onchange="vt('${i}_${j}',this.checked)"><span>${x}</span></label>`).join(''):'<small>این ایستگاه واکسن ندارد — فقط مراقبت</small>'}
+<h3>💊 مکمل‌ها</h3>${SUP(i).map(x=>'• '+x).join('<br>')}<h3>🎓 تکامل</h3>${ST[i][2]}<h3>🩺 اندازه‌گیری</h3><small>وزن، قد و دور سر را در صفحه رشد ثبت کنید.</small>
+${ASQI.includes(i)?`<br><button class="b2" style="margin-top:6px" onclick="closeM();S.aq=${i};nav('asq')">🎯 تمرین ASQ</button>`:''}
+${ed&&ok?`<button class="w ${k.completed[i]?'b2':'bg'}" style="margin-top:8px" onclick="comp(${i})">${k.completed[i]?'برگرداندن به ناتمام':'✅ تکمیل ایستگاه'}</button>`:''}`)}
+function vt(key,v){gk().vaccines[key]=v;sv()}
+function comp(i){const k=gk();k.completed[i]=!k.completed[i];sv();closeM();R()}
+// growth
+const G={a:0,b:6},PT={};
+function gHome(k){const m=Math.max(0,...k.measurements.map(x=>(x.t-k.bd)/MS));G.a=0;G.b=[6,12,24,60].find(x=>x>=m)||60}
+function growV(k){return`<h2>📈 نمودار رشد</h2><div class="tabs">${Object.keys(NM).map(t=>`<button class="${S.gt==t||(!S.gt&&t=='w')?'on':''}" onclick="S.gt='${t}';R()">${NM[t].split(' ')[0]}</button>`).join('')}</div>
+<canvas id="cv"></canvas><div class="row" style="margin:8px 0"><button class="b2" onclick="gz(1.4)">−</button><button class="b2" onclick="gz(.7)">+</button><button class="b2" onclick="gHm()">🏠</button><button class="b2" onclick="gp(-.5)">◀</button><button class="b2" onclick="gp(.5)">▶</button></div><div class="card" id="gs"></div>
+<small>منحنی‌ها: ±۲SD، ±۱SD و میانه (WHO MGRS، مقادیر تقریبی). ${k.isPreterm?'نارس: بر اساس سن اصلاح‌شده. ':''}با دو انگشت زوم و با درگ یا ◀ ▶ جابه‌جا کنید (راست = سن بیشتر). مقادیر منحنی تقریبی‌اند و تفسیر نهایی با مراقب سلامت است.</small>
+${canEdit()?`<div class="card"><h2>ثبت اندازه‌گیری</h2><div class="row"><input id="mw" placeholder="وزن kg" inputmode="decimal"><input id="mh" placeholder="قد cm" inputmode="decimal"><input id="mc" placeholder="دور سر cm" inputmode="decimal"></div><button class="w" onclick="addM()">ثبت (با تاریخ امروز)</button></div>`:''}
+<div class="card"><h2>تاریخچه</h2>${k.measurements.length?k.measurements.map((m,i)=>`<div class="row"><span>${jf(m.t)}: ${m.w||'-'}kg · ${m.h||'-'}cm · ${m.c||'-'}cm</span>${canEdit()?`<button class="br" onclick="delM(${i})">حذف</button>`:''}</div>`).join(''):'<small>هنوز چیزی ثبت نشده</small>'}</div>`}
+function addM(){const v=i=>parseFloat(nd($('#'+i).value).replace('/','.').replace('٫','.'))||0,m={t:Date.now(),w:v('mw'),h:v('mh'),c:v('mc')};
+ if(!m.w&&!m.h&&!m.c)return toast('حداقل یک مقدار وارد کنید');if(m.w>40||m.h>150||m.c>70)return toast('مقدار غیرعادی است');
+ ask(`ثبت شود؟\nوزن ${m.w} | قد ${m.h} | دور سر ${m.c}`,()=>{gk().measurements.push(m);sv();R()})}
+function delM(i){ask('این اندازه‌گیری حذف شود؟',()=>{gk().measurements.splice(i,1);sv();R()})}
+function gInit(){const k=gk(),c=$('#cv');if(!c)return;if(!G.init||G.k!=k.id){gHome(k);G.init=1;G.k=k.id}
+ c.onpointerdown=e=>{c.setPointerCapture(e.pointerId);PT[e.pointerId]=e.clientX};c.onpointerup=c.onpointercancel=e=>{delete PT[e.pointerId]};
+ c.onpointermove=e=>{if(!(e.pointerId in PT))return;const ids=Object.keys(PT),w=c.clientWidth-60;if(ids.length==1){gp(-(e.clientX-PT[e.pointerId])/w,1);PT[e.pointerId]=e.clientX}else{const o=ids.map(i=>PT[i]),od=Math.abs(o[0]-o[1]);PT[e.pointerId]=e.clientX;const n=ids.map(i=>PT[i]),nd2=Math.abs(n[0]-n[1]);if(od>5&&nd2>5)gz(od/nd2,0,(n[0]+n[1])/2)}};
+ c.onwheel=e=>{e.preventDefault();gz(e.deltaY>0?1.15:.87)};gdraw()}
+function gz(f,_,cx){const c=$('#cv'),ctr=cx!=null?G.a+((cx-c.getBoundingClientRect().left-30)/(c.clientWidth-60))*(G.b-G.a):(G.a+G.b)/2;let a=ctr-(ctr-G.a)*f,b=ctr+(G.b-ctr)*f;if(b-a<1.5){a=ctr-.75;b=ctr+.75}if(b-a>60){a=0;b=60}if(a<0){b-=a;a=0}if(b>60){a-=b-60;b=60}G.a=Math.max(0,a);G.b=Math.min(60,b);gdraw()}
+function gp(f,abs){const w=G.b-G.a,o=G.a;let a=Math.max(0,Math.min(60-w,o+f*w));G.a=a;G.b=a+w;if(!abs&&Math.abs(a-o)<1e-6)toast(w>=59.9?'برای حرکت، اول با + زوم کنید':f<0?'به ابتدای نمودار رسیدید':'به انتهای نمودار رسیدید');gdraw()}
+function gHm(){gHome(gk());gdraw()}
+function gsum(k){return['w','h','c'].map(t=>{const l=k.measurements.filter(m=>m[t]).pop();if(!l)return'';const cm=corr(k,(l.t-k.bd)/MS,t),a=M[t][k.gender],md=ip(a,cm),z=(l[t]-md)/(md*FR[t]),az=Math.abs(z),c=az<=1?'#10b981':az<=2?'#f59e0b':'#ef4444',tx=az<=2?'در محدوده‌ی معمول':'خارج از محدوده‌ی معمول؛ با مراقب سلامت مشورت کنید';return`<div style="margin:4px 0"><span style="color:${c}">●</span> <b>${NM[t].split(' ')[0]}</b> ${l[t]}: ${z>=0?'+':''}${z.toFixed(1)} SD — ${tx}</div>`}).join('')||'<small>بعد از ثبت اندازه‌گیری، وضعیت اینجا نمایش داده می‌شود.</small>'}
+function gdraw(){const c=$('#cv');if(!c)return;const k=gk(),t=S.gt||'w',dp=devicePixelRatio||1,W=c.clientWidth,H=c.clientHeight;c.width=W*dp;c.height=H*dp;const x=c.getContext('2d');x.scale(dp,dp);
+ const arr=M[t][k.gender],md=m=>ip(arr,m),sd=m=>md(m)*FR[t],P=40,B=28,sp=G.b-G.a;let lo=1e9,hi=-1e9;
+ for(let i=0;i<=30;i++){const m=G.a+sp*i/30;lo=Math.min(lo,md(m)-2*sd(m));hi=Math.max(hi,md(m)+2*sd(m))}const pd=(hi-lo)*.08;lo-=pd;hi+=pd;
+ const X=m=>P+(m-G.a)/sp*(W-P-10),Y=v=>H-B-(v-lo)/(hi-lo)*(H-B-14),st=sp<=3?.5:sp<=8?1:sp<=14?2:sp<=30?3:6,tx=getComputedStyle(document.body).color;
+ x.font='11px Vazirmatn,sans-serif';x.lineWidth=1;x.textAlign='center';
+ for(let m=Math.ceil(G.a/st-1e-9)*st;m<=G.b+1e-6;m+=st){x.strokeStyle='#8883';x.beginPath();x.moveTo(X(m),8);x.lineTo(X(m),H-B);x.stroke();x.fillStyle='#8a8499';x.fillText(+m.toFixed(1),X(m),H-14)}
+ x.fillText('سن (ماه)',(W+P)/2,H-2);x.textAlign='right';
+ for(let i=0;i<=4;i++){const v=lo+(hi-lo)*i/4;x.strokeStyle='#8883';x.beginPath();x.moveTo(P,Y(v));x.lineTo(W-10,Y(v));x.stroke();x.fillStyle='#8a8499';x.fillText(v.toFixed(1),P-5,Y(v)+4)}
+ x.save();x.beginPath();x.rect(P,0,W-P-10,H-B+2);x.clip();
+ [[-2,'#ef4444'],[-1,'#f59e0b'],[0,'#4f46e5'],[1,'#f59e0b'],[2,'#ef4444']].forEach(([z,col])=>{x.beginPath();x.strokeStyle=col;x.lineWidth=z?1.5:3;x.setLineDash(z?[5,4]:[]);for(let i=0;i<=80;i++){const m=G.a+sp*i/80;i?x.lineTo(X(m),Y(md(m)+z*sd(m))):x.moveTo(X(m),Y(md(m)+z*sd(m)))}x.stroke()});x.setLineDash([]);
+ const ag=ad(k)/30.4375;if(ag>=G.a&&ag<=G.b){x.strokeStyle=tx;x.lineWidth=1.5;x.setLineDash([2,3]);x.beginPath();x.moveTo(X(ag),8);x.lineTo(X(ag),H-B);x.stroke();x.setLineDash([]);x.fillStyle=tx;x.textAlign='center';x.fillText('امروز',X(ag),18)}
+ k.measurements.forEach(m=>{const v=m[t];if(!v)return;const cm=corr(k,(m.t-k.bd)/MS,t);if(cm<G.a-.5||cm>G.b+.5)return;const z=(v-md(cm))/sd(cm);x.beginPath();x.fillStyle=Math.abs(z)<=1?'#10b981':Math.abs(z)<=2?'#f59e0b':'#ef4444';x.arc(X(cm),Y(v),6.5,0,7);x.fill();x.strokeStyle='#fff';x.lineWidth=2;x.stroke()});x.restore();
+ const g=$('#gs');if(g)g.innerHTML=gsum(k)}
+// asq
+function asqV(k){const i=ASQI.includes(S.aq)?S.aq:8;let h=`<h2>🎯 تمرین با کودک (ASQ)</h2><div>${ASQI.map(j=>`<span class="chip ${j==i?'on':''}" onclick="S.aq=${j};R()">${ST[j][0].split(' (')[0]}</span>`).join('')}</div>`;
+ if(i!=8)return h+`<div class="card">بانک ۳۰ سوال این سن هنوز در این نسخه اضافه نشده است. فعلاً از مراقب سلامت بپرسید.</div>`;
+ let n=0,t=0;Q12.forEach((d,a)=>d[1].forEach((q,j)=>{t++;if(k.asq[`8_${a}_${j}`])n++}));
+ h+=`<div class="card"><div class="row"><b>پیشرفت</b><span class="mu" style="text-align:left">${n} از ${t}</span></div><div class="pb"><i style="width:${n/t*100}%"></i></div></div>`;
+ Q12.forEach((d,a)=>{h+=`<div class="card"><h3>${d[0]}</h3>`+d[1].map((q,j)=>`<label class="ck"><input type="checkbox" ${k.asq[`8_${a}_${j}`]?'checked':''} ${canEdit()?'':'disabled'} onchange="at('8_${a}_${j}',this.checked)"><span>${q[0]}<br><small>🎯 ${q[1]}</small></span></label>`).join('')+'</div>'});return h}
+function at(key,v){gk().asq[key]=v;sv();R();}
+// calendar
+function calV(k){const n=jp(Date.now()),y=S.cm?S.cm[0]:n[0],m=S.cm?S.cm[1]:n[1],ev={};
+ ST.forEach((s,i)=>{const p=jp(k.bd+s[1]*DAY);if(p[0]==y&&p[1]==m)(ev[p[2]]=ev[p[2]]||[]).push(i)});
+ const f=(new Date(jmk(y,m,1)).getDay()+1)%7;let c='';['ش','ی','د','س','چ','پ','ج'].forEach(x=>c+=`<div class="mu">${x}</div>`);for(let i=0;i<f;i++)c+='<div></div>';
+ for(let d=1;d<=jml(y,m);d++){const e=ev[d]||[],vx=e.some(i=>VAC[i]),ax=e.some(i=>ASQI.includes(i));c+=`<div class="${e.length?'ev '+(vx?'v':'c'):''} ${y==n[0]&&m==n[1]&&d==n[2]?'td':''}" ${e.length?`onclick="evd(${e[0]})"`:''}>${d}${e.length?`<span class="vi">${vx?'💉':'🩺'}${ax?'🎯':''}</span>`:''}</div>`}
+ return`<h2>📅 تقویم شمسی</h2><div class="card"><div class="row"><button class="b2" onclick="cmv(1)">→</button><b style="text-align:center">${JM[m-1]} ${y}</b><button class="b2" onclick="cmv(-1)">←</button></div><br><div class="cal">${c}</div><div class="lg"><span><i style="background:#4f46e5"></i>روز مراقبت</span><span><i style="background:linear-gradient(135deg,#ff9a76,#ff6b8b)"></i>روز واکسن 💉</span><span>🎯 ASQ</span></div><small>روی روزهای رنگی بزنید</small></div>`}
+function cmv(d){const n=jp(Date.now());let y=S.cm?S.cm[0]:n[0],m=(S.cm?S.cm[1]:n[1])+d;if(m>12){m=1;y++}if(m<1){m=12;y--}S.cm=[y,m];R()}
+function evd(i){const k=gk(),v=VAC[i];modal(`<h2>${ST[i][0]}</h2><div class="dt">${jf(k.bd+ST[i][1]*DAY)}</div>${v?'<h3>💉 واکسن</h3>'+v.join('، '):'<small>واکسن ندارد — فقط مراقبت</small>'}${ASQI.includes(i)?'<h3>🎯 ASQ</h3>تمرین از '+SET.asq+' روز قبل':''}<h3>🎓 تکامل</h3>${ST[i][2]}`)}
+const HELP=[
+{i:'🌡️',t:'تب',s:'بدن گرم‌تر از معمول است',h:['لباس سبک بپوشانید و اتاق را خنک نگه دارید','شیر مادر یا مایعات را بیشتر و کم‌کم بدهید','با پارچه‌ی خیس ولرم کمپرس کنید (نه آب سرد و نه الکل)','برای تب‌بر، فقط با نظر پزشک یا داروساز و طبق برچسب محصول و وزن کودک عمل کنید'],g:['تب طولانی یا غیرقابل کنترل','خواب‌آلودگی غیرعادی یا بی‌قراری شدید','تشنج','شیر یا مایعات نمی‌خورد','لکه‌های بنفش روی پوست که با فشار از بین نمی‌رود']},
+{i:'💧',t:'اسهال',s:'مدفوع شل و آبکی و مکرر',h:['شیر مادر را ادامه دهید و غذا را قطع نکنید','محلول ORS را طبق دستور روی بسته، کم‌کم و جرعه‌جرعه بدهید','آب‌میوه و نوشیدنی شیرین ندهید','دست‌ها و پوشک را بهداشتی نگه دارید'],g:['اسهال شدید یا خونی','علائم کم‌آبی: چشم گود، دهان خشک، چند ساعت ادرار نکردن، بی‌حالی','هر چیزی که می‌خورد بالا می‌آورد','تب بالا یا خواب‌آلودگی غیرعادی','اسهال بیش از ۲-۳ روز']},
+{i:'🤢',t:'استفراغ',s:'بالا آوردن شیر یا غذا',h:['وعده‌های کم و مکرر بدهید','کودک را نشسته یا بغل بالا نگه دارید','ORS را جرعه‌جرعه بدهید','کمی آروغ بگیرید و بعد از شیر فوراً نخوابانید'],g:['هر چیزی که می‌خورد استفراغ می‌کند','استفراغ سبز پررنگ یا خونی','شکم سفت و باد کرده','بی‌حالی یا علائم کم‌آبی','استفراغ بعد از ضربه به سر']},
+{i:'🤧',t:'سرماخوردگی و سرفه',s:'آبریزش بینی، سرفه، خس‌خس',h:['با قطره‌ی آب نمک (سالین) بینی را باز کنید','مایعات و شیر مادر را بیشتر بدهید','هوای اتاق مرطوب و بدون دود سیگار باشد','عسل زیر ۱ سال ممنوع است؛ داروی سرماخوردگی را بدون پزشک ندهید'],g:['تنفس سخت، نامنظم یا خیلی تند','فرورفتن قفسه‌ی سینه یا کبودی لب‌ها','شیر یا مایعات نمی‌خورد','تب طولانی','سرفه بیش از ۲ هفته']},
+{i:'😭',t:'گریه‌ی زیاد',s:'کودک آرام نمی‌شود',h:['گرسنگی، پوشک خیس، گرما یا سرما و آروغ را چک کنید','بغل کنید، تماس پوست با پوست، نور و صدای کم','هرگز کودک را تکان ندهید','اگر خسته‌اید، کودک را جای امن بگذارید و چند لحظه نفس بکشید'],g:['بیش از ۳ ساعت بی‌وقفه گریه و آرام نمی‌شود','همراه با تب، استفراغ یا شکم سفت','شیر نمی‌خورد یا خیلی بی‌حال است','گریه‌ی ناگهانیِ شدید بعد از افتادن']},
+{i:'🍼',t:'شیر یا غذا نمی‌خورد',s:'اشتهای کم یا امتناع',h:['در محیط آرام و بی‌سر و صدا پیشنهاد دهید','بیشتر و کم‌کم شیر بدهید','به‌زور غذا ندهید','غذای جدید را هر ۵ روز یکی معرفی کنید'],g:['قادر به شیر خوردن یا نوشیدن نیست','کم‌ادراری یا بی‌حالی','تب همراه','وزن‌گیری نمی‌کند']},
+{i:'🔴',t:'بثورات پوستی',s:'جوش، قرمزی، لکه',h:['پوست را تمیز و خشک نگه دارید','لباس نخی و گشاد بپوشانید','پوشک را مرتب عوض کنید','بدون نظر پزشک کرم یا پماد نمالید'],g:['همراه با تب','لکه‌های بنفش که با فشار از بین نمی‌روند','تاول یا تورم لب و صورت','سختی در تنفس']},
+{i:'🤕',t:'ضربه به سر',s:'افتادن یا خوردن سر',h:['آرام بمانید و کودک را آرام کنید','کمپرس سرد روی محل بگذارید','تا ۲۴ ساعت مراقب باشید'],g:['بیهوشی یا خواب‌آلودگی غیرعادی','استفراغ تکراری','تشنج','خروج خون یا مایع از گوش یا بینی','گریه‌ی غیرقابل تسکین یا برآمدگی نرم و بزرگ']}];
+const RED=['تب طولانی یا غیرقابل کنترل','قادر به شیرخوردن یا نوشیدن نیست','هر چیزی که می‌خورد استفراغ می‌کند','اسهال شدید','خواب‌آلودگی غیرعادی و بی‌هوشی','بی‌قراری شدید','تنفس سخت، نامنظم یا خیلی تند','تشنج'];
+function helpV(){return`<h2>🆘 چه کنم اگر…؟</h2><div class="edu-tip danger"><div class="tip-title">🚨 این علائم را دید، فوراً به مرکز درمانی بروید</div>${RED.map(x=>'• '+x).join('<br>')}</div>`+HELP.map((e,i)=>`<div class="card" onclick="hm(${i})" style="cursor:pointer"><div class="row"><b>${e.i} ${e.t}</b><span style="flex:none">📖</span></div><small>${e.s}</small></div>`).join('')+`<small>این راهنما کمکی و غیررسمی است و جایگزین پزشک نیست. اگر نگران بودید، تماس بگیرید یا مراجعه کنید.</small>`}
+function hm(i){const e=HELP[i],k=gk();modal(`<h2>${e.i} ${e.t}</h2>${i==0&&k&&ad(k)<90?'<div class="edu-tip danger"><div class="tip-title">⚠️ نوزاد زیر ۳ ماه</div>هر تب ۳۸ درجه یا بیشتر در این سن را همان روز به پزشک نشان دهید.</div>':''}<div class="edu-tip good"><div class="tip-title">🏠 در خانه چه کنم</div>${e.h.map(x=>'• '+x).join('<br>')}</div><div class="edu-tip danger"><div class="tip-title">🚨 کی بروم دکتر؟</div>${e.g.map(x=>'• '+x).join('<br>')}</div>`)}
+function learnV(){return`<h2>📚 آموزش والدین</h2>`+EDU.map((e,i)=>`<div class="card" onclick="lm(${i})" style="cursor:pointer"><div class="row"><b>${e.icon} ${e.title}</b><span style="flex:none">📖</span></div><small>${e.summary}</small></div>`).join('')}
+function lm(i){modal(`<h2>${EDU[i].icon} ${EDU[i].title}</h2>${EDU[i].body}`)}
+function setV(k){const k2=S.kid?gk():null,bs=k2?[['🌱','اولین اندازه‌گیری',k2.measurements.length>0],['✅','اولین ایستگاه تکمیل',Object.values(k2.completed).filter(Boolean).length>0],['🏆','۵ ایستگاه تکمیل',Object.values(k2.completed).filter(Boolean).length>=5],['🎯','۱۰ تمرین ASQ',Object.values(k2.asq).filter(Boolean).length>=10]]:[];
+ return`<h2>⚙️ تنظیمات</h2><div class="card"><b>یادآور ASQ</b><select onchange="SET.asq=+this.value;sv();toast('ذخیره شد')">${[3,5,7,14].map(d=>`<option ${SET.asq==d?'selected':''} value="${d}">${d} روز قبل</option>`).join('')}</select><button class="w b2" onclick="theme()">${SET.t=='dark'?'☀️ حالت روشن':'🌙 حالت تاریک'}</button></div>${bs.length?`<div class="card"><h2>🏅 دستاوردها</h2>${bs.map(b=>`<div style="opacity:${b[2]?1:.35}">${b[0]} ${b[1]}</div>`).join('')}</div>`:''}<button class="w b2" onclick="nav(S.kid?'dash':'kids')">بازگشت</button>`}
+// admin / staff
+function flt(k,f){const a=ad(k);return f=='all'||(f=='vac'&&ST.some((s,i)=>VAC[i]&&!k.completed[i]&&a>s[1]+3))||(f=='asq'&&ASQI.some(i=>!k.completed[i]&&a>=ST[i][1]-SET.asq))||(f=='over'&&stat(k).includes('over'))||(f=='pre'&&k.isPreterm)}
+function kidsV(){const q=S.q.toLowerCase(),list=DB.kids.filter(k=>(S.r=='admin'||k.staff==S.sid)&&(k.name+k.code+k.mother).toLowerCase().includes(q)&&flt(k,S.f)),F=[['all','همه'],['vac','واکسن عقب'],['asq','ASQ مانده'],['over','عقب‌افتاده'],['pre','نارس']];
+ return`<h2>👶 کودکان (${list.length})</h2><input placeholder="جستجو: نام، کد، موبایل" value="${E(S.q)}" oninput="S.q=this.value;R();const i=$('input');i.focus();i.setSelectionRange(99,99)"><div>${F.map(f=>`<span class="chip ${S.f==f[0]?'on':''}" onclick="S.f='${f[0]}';R()">${f[1]}</span>`).join('')}</div>`+
+ list.map(k=>`<div class="card" onclick="pick(${k.id})" style="cursor:pointer"><b>${k.gender=='B'?'👦':'👧'} ${E(k.name)}</b> <span class="chip">${k.isPreterm?'نارس':'ترم'}</span><br><small dir="ltr">${k.code}</small> · <small>${ageTxt(k)}</small>${stat(k).includes('over')?' <span class="chip" style="background:#f43f5e33">🔴 عقب‌افتاده</span>':''}</div>`).join('')||'<div class="card mu">کودکی یافت نشد</div>'}
+function admV(){return`<h2>🛠️ مدیریت</h2><div class="card"><h2>➕ افزودن کودک</h2>${regForm(true)}</div>
+<div class="card"><h2>👩‍⚕️ افزودن پرسنل</h2><input id="sn" placeholder="نام نمایشی"><input id="su" placeholder="نام کاربری" dir="ltr"><input id="sp" placeholder="رمز" dir="ltr"><button class="w" onclick="addSt()">افزودن</button></div>
+<div class="card"><h2>پرسنل (${DB.staff.length})</h2>${DB.staff.map(s=>`<div class="row"><span>${E(s.name)} <small dir="ltr">(${E(s.u)})</small></span><span class="chip" style="flex:none">${DB.kids.filter(k=>k.staff==s.id).length} کودک</span></div>`).join('')}</div>
+<div class="card"><h2>تخصیص کودک به پرسنل</h2>${DB.kids.map(k=>`<div class="row"><span>${E(k.name)}</span><select onchange="asg(${k.id},this.value)"><option value="0">—</option>${DB.staff.map(s=>`<option value="${s.id}" ${k.staff==s.id?'selected':''}>${E(s.name)}</option>`).join('')}</select></div>`).join('')||'<small>کودکی ثبت نشده</small>'}</div>`}
+function addSt(){const n=$('#sn').value.trim(),u=$('#su').value.trim(),p=$('#sp').value.trim();if(!n||!u||!p||u==DB.admin.u||DB.staff.some(s=>s.u==u))return toast('اطلاعات ناقص یا تکراری است');DB.staff.push({id:Date.now(),u,p,name:n});sv();toast('پرسنل اضافه شد');R()}
+function asg(id,v){DB.kids.find(k=>k.id==id).staff=+v;sv();toast('تخصیص داده شد')}
+window.addEventListener('resize',()=>{if(S.p=='growth')gdraw()});
+R();
+</script></body></html>
